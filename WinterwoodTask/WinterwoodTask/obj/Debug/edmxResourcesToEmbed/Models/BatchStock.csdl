@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WinterwoodTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Batch">
+    <Key>
+      <PropertyRef Name="BatchID" />
+    </Key>
+    <Property Name="BatchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fruit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Variety" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" />
+    <Property Name="Fruit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Variety" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="WinterwoodTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Batches" EntityType="Self.Batch" />
+    <EntitySet Name="Stocks" EntityType="WinterwoodTestModel.Stock" />
+  </EntityContainer>
+</Schema>
