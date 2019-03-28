@@ -27,5 +27,7 @@ namespace WinterwoodTask.Models
     
         public virtual DbSet<Batch> Batches { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<UserAccount> UserAccounts { get; set; }
+        public virtual DbSet<UserAccount1> UserAccounts1 { get; set; }
     }
 }

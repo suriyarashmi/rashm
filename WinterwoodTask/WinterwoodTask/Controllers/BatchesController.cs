@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WinterwoodTask;
+using WinterwoodTask.Models;
 
 namespace WinterwoodTask.Controllers
 {
@@ -44,6 +45,9 @@ namespace WinterwoodTask.Controllers
         // POST: Batches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BatchID,Fruit,Variety,Quantity")] Batch batch)
@@ -51,15 +55,19 @@ namespace WinterwoodTask.Controllers
             if (ModelState.IsValid)
             {
 
-                var query = db.Batches         // source
-       .Join(db.Stocks,         // target
-          b => b.Fruit,          // FK
-          s => s.Fruit,   // PK
-          (b, s) => new { Batch = b, Stock = s }) // project result
-       .Select(x => x.Batch);  // select result
-
+              
                 db.Batches.Add(batch);
                 db.SaveChanges();
+                Batch table1 = db.Batches.FirstOrDefault();
+                Stock table2 = new Stock
+                {
+                    Fruit = batch.Fruit,
+                    Variety = batch.Variety,
+                    Quantity = batch.Quantity
+                };
+                db.Stocks.Add (table2);
+                    db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
 
@@ -76,18 +84,7 @@ namespace WinterwoodTask.Controllers
             // test by adding new code
             Batch batch = db.Batches.Find(id);
 
-            //var found = db.Batches.Join(db.Stocks, Batch => Batch.Fruit, Stock => Stock.Fruit);
-            //var found = from b in b.Batch
-            //            join s in s.Stock on b.Fruit equals s.Fruit on b.Variety equals s.Variety
-            //            select b;
-
-
-   //         var query = db.Batches         // source
-   //.Join(db.Stocks,         // target
-   //   b => b.Fruit,          // FK
-   //   s => s.Fruit,   // PK
-   //   (b, s) => new { Batch = b, Stock = s}) // project result
-   //.Select(x => x.Batch);  // select result
+           
 
             if (batch == null)
             {
@@ -111,10 +108,38 @@ namespace WinterwoodTask.Controllers
 
                 db.SaveChanges();
 
+                {
 
-                return RedirectToAction("Index");
+                    int qty = Convert.ToInt32(db.Batches.Where(b => b.Quantity == 0).FirstOrDefault());
+                    if (qty == 0)
+                    {
+                        var stock = db.Stocks.Where(s => s.Fruit == batch.Fruit && s.Variety == batch.Variety).FirstOrDefault();
+                        if (stock != null)
+                        {
+                            Batch table1 = db.Batches.FirstOrDefault();
+                            Stock table2 = new Stock
+                            {
+                                Fruit = batch.Fruit,
+                                Variety = batch.Variety,
+                                Quantity = batch.Quantity
+                            };
+                            db.Stocks.Add(table2);
+                            db.SaveChanges();
+                        }
+                    }
+                    return RedirectToAction("../Batches/Index");
+
+                }
             }
-            return View(batch);
+            else
+            {
+                ModelState.AddModelError("", "Unable to add new stock.");
+            }
+
+            
+                    return RedirectToAction("Stock");
+            
+            
         }
 
         // GET: Batches/Delete/5

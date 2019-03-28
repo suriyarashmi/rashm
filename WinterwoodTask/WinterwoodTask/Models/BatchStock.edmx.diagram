@@ -5,8 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="74d9966a78784d6e9f2ddf0370e02c91" Name="Diagram1" ZoomLevel="101">
-        <EntityTypeShape EntityType="WinterwoodTestModel.Batch" Width="1.75" PointX="1.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WinterwoodTestModel.Batch" Width="1.75" PointX="3.375" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WinterwoodTestModel.Stock" Width="1.5" PointX="5.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WinterwoodTestModel.UserAccount" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="WinterwoodTestModel.UserAccount1" Width="1.5" PointX="4.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

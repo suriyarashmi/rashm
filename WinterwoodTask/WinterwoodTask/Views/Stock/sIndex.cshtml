@@ -1,13 +1,13 @@
-﻿@model IEnumerable<WinterwoodTask.Batch>
+﻿@model IEnumerable<WinterwoodTask.Stock>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SIndex";
 }
 
-<h2>Index</h2>
+<h2>Stock List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Back to Batch List", "../Batches/Index")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,7 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BatchID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BatchID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BatchID })
+           
         </td>
     </tr>
 }
@@ -45,5 +43,5 @@
 </table>
 
 <p>
-    @Html.ActionLink("Stock List", "../Stock/SIndex")
+    @Html.ActionLink("Back to Batch List", "../Batches/Index")
 </p>

@@ -9,12 +9,6 @@
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Variety" ColumnName="Variety" />
         </MappingFragment>
-        <MappingFragment StoreEntitySet="Stock">
-          <ScalarProperty Name="BatchID" ColumnName="StockID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="Variety" ColumnName="Variety" />
-          <ScalarProperty Name="Fruit" ColumnName="Fruit" />
-        </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Stocks">
@@ -24,6 +18,33 @@
           <ScalarProperty Name="Variety" ColumnName="Variety" />
           <ScalarProperty Name="Fruit" ColumnName="Fruit" />
           <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <Condition ColumnName="Quantity" IsNull="false" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccounts">
+      <EntityTypeMapping TypeName="WinterwoodTestModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccounts1">
+      <EntityTypeMapping TypeName="WinterwoodTestModel.UserAccount1">
+        <MappingFragment StoreEntitySet="UserAccounts">
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

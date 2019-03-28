@@ -138,6 +138,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Batch.cs" />
+    <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Models\Batch.cs">
       <DependentUpon>BatchStock.tt</DependentUpon>
     </Compile>
@@ -165,18 +166,21 @@
     <Compile Include="Models\Stock.cs">
       <DependentUpon>BatchStock.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\StockController.cs" />
-    <Compile Include="Models\UserAccount.cs" />
+    <Compile Include="Models\UserAccount.cs">
+      <DependentUpon>BatchStock.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\UserAccountController.cs" />
+    <Compile Include="Models\UserAccount1.cs">
+      <DependentUpon>BatchStock.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stock.cs" />
+    <Compile Include="Models\Stock1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Batches\Create.cshtml" />
     <Content Include="Views\Batches\Delete.cshtml" />
     <Content Include="Views\Batches\Details.cshtml" />
     <Content Include="Views\Batches\Edit.cshtml" />
@@ -184,6 +188,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\UserAccount\Register.cshtml" />
     <Content Include="Views\UserAccount\Login.cshtml" />
+    <Content Include="Views\Batches\Create.cshtml" />
+    <Content Include="Views\Stock\sIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,7 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Stock\" />
+    <Folder Include="Views\Stocks\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

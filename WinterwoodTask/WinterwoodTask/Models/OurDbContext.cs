@@ -10,6 +10,7 @@ namespace WinterwoodTask.Models
     {
         public DbSet<UserAccount>UserAccount { get; set; }
 
-       // public System.Data.Entity.DbSet<WinterwoodTask.Models.Stock> Stocks { get; set; }
+       //public DbSet<Batch > Batches { get; set; }
+       // public DbSet<Stock> Stocks { get; set; }
     }
 }

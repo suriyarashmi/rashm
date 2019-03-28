@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data;
 using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using WinterwoodTask;
+using WinterwoodTask.Models;
 
-namespace WinterwoodTask.Models
+
+namespace WinterwoodTask.Controllers
 {
     public class StockController : Controller
     {
-        private Stock dl = new Stock() ;
-        
+        private BatchModel bs = new BatchModel();
         // GET: Stock
-        public ActionResult Index()
+        public ActionResult SIndex()
         {
-            return View();
+            return View(bs.Stocks.ToList());
         }
 
         // GET: Stock/Details/5
