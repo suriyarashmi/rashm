@@ -11,4 +11,4 @@ I have done the registration and login access for the users
  
 3. During adding or updating batches, the stocks will be created by grouping the d by grouping the batches based on Fruit and Variety. New stock will be created if the combination Fruit and variety not present already, else increase the quantity of stock.
 
-I have added new stock when there was an increase in Batch table
+I have added new stock when there was an increase in Batch table and you can view the stock list from the link in Batch index
